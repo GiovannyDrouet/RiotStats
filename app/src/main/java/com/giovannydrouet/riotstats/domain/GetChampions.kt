@@ -1,8 +1,11 @@
 package com.giovannydrouet.riotstats.domain
 
-class GetChampions {
+import com.giovannydrouet.riotstats.domain.model.Champion
+import com.giovannydrouet.riotstats.domain.repository.ChampionRepository
 
-    fun getChampions() : List<Champion>{
-        return listOf()
+class GetChampions(private val championRepository: ChampionRepository) {
+
+    fun getChampions(): List<Champion> {
+        return championRepository.getChampions()
     }
 }
