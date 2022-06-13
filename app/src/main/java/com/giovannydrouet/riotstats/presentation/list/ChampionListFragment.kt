@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
 
 class ChampionListFragment : Fragment() {
     private var binding: FragmentChampionListBinding? = null
+
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

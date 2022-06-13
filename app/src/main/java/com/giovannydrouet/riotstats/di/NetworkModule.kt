@@ -18,6 +18,11 @@ import retrofit2.Retrofit
 @ExperimentalSerializationApi
 object NetworkModule {
 
+    private val json = Json {
+        ignoreUnknownKeys = true
+        explicitNulls = false
+    }
+
     @Provides
     fun provideRiotService(): RiotAPI {
         val logging = HttpLoggingInterceptor()
@@ -29,9 +34,9 @@ object NetworkModule {
 
         val contentType = "application/json".toMediaType()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://ddragon.leagueoflegends.com/cdn/12.11.1/")
+            .baseUrl("https://ddragon.leagueoflegends.com/cdn/12.11.1/")
             .client(client)
-            .addConverterFactory(Json.asConverterFactory(contentType))
+            .addConverterFactory(json.asConverterFactory(contentType))
             .build()
 
         return retrofit.create(RiotAPI::class.java)
