@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface RiotAPI {
     @GET("data/en_US/champion.json")
-    fun getChampions(): ChampionResponse
+    suspend fun getChampions(): ChampionResponse
 }

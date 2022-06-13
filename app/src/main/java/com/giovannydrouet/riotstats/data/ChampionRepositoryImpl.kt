@@ -10,7 +10,7 @@ class ChampionRepositoryImpl @Inject constructor(
     private val service: RiotAPI
 ) : ChampionRepository {
 
-    override fun getChampions(): List<Champion> {
+    override suspend fun getChampions(): List<Champion> {
         return service.getChampions().toDomain()
     }
 }

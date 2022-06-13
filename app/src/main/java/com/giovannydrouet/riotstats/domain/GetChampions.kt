@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class GetChampions @Inject constructor(private val championRepository: ChampionRepository) {
 
-    fun getChampions(): List<Champion> {
+    suspend fun getChampions(): List<Champion> {
         return championRepository.getChampions()
     }
 }
