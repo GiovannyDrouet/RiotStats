@@ -1,7 +1,8 @@
-package com.giovannydrouet.riotstats
+package com.giovannydrouet.riotstats.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.giovannydrouet.riotstats.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
