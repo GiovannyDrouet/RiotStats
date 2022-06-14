@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
 import com.giovannydrouet.riotstats.domain.model.Champion
 import com.giovannydrouet.riotstats.presentation.recylcerview.ChampionListAdapter
+import okhttp3.internal.notify
 
 //Fragment that provides the list of champions to the screen
 class ChampionListFragment : Fragment() {
@@ -37,11 +38,12 @@ class ChampionListFragment : Fragment() {
         mainViewModel.champions.observe(viewLifecycleOwner, ::renderList)
         mainViewModel.getChampionList()
 
-        binding?.championListRecyclerView?.layoutManager = GridLayoutManager(requireContext(),2)
+        binding?.championListRecyclerView?.layoutManager = GridLayoutManager(requireContext(),3)
         binding?.championListRecyclerView?.adapter = championListAdapter
     }
 
     private fun renderList(championList : List<Champion>){
         championListAdapter.setDataList(championList)
+        championListAdapter.notifyDataSetChanged()
     }
 }

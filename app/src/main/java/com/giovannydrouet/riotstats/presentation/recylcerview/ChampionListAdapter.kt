@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.domain.model.Champion
+import com.squareup.picasso.Picasso
 
 class ChampionListAdapter:
     RecyclerView.Adapter<ChampionListAdapter.ViewHolder>() {
@@ -46,7 +47,7 @@ class ChampionListAdapter:
 
         // Set item views based on your views and data model
         holder.title.text = data.name
-        //holder.image.setImageResource(data.image)
+        Picasso.get().load(data.image).into(holder.image)
     }
 
     //  total count of items in the list
