@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
 import com.giovannydrouet.riotstats.domain.model.Champion
+import com.giovannydrouet.riotstats.presentation.MainViewModel
 import com.giovannydrouet.riotstats.presentation.recylcerview.ChampionListAdapter
-import okhttp3.internal.notify
 
 //Fragment that provides the list of champions to the screen
 class ChampionListFragment : Fragment() {
     private var binding: FragmentChampionListBinding? = null
     private val mainViewModel: MainViewModel by activityViewModels()
 
-    private val championListAdapter: ChampionListAdapter = ChampionListAdapter()
+    private val championListAdapter = ChampionListAdapter(::onItemClicked)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,5 +47,9 @@ class ChampionListFragment : Fragment() {
     private fun renderList(championList : List<Champion>){
         championListAdapter.setDataList(championList)
         championListAdapter.notifyDataSetChanged()
+    }
+
+    private fun onItemClicked(){
+        findNavController().navigate(R.id.listToDetails)
     }
 }

@@ -5,13 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.domain.model.Champion
 import com.squareup.picasso.Picasso
 
-class ChampionListAdapter:
-    RecyclerView.Adapter<ChampionListAdapter.ViewHolder>() {
+class ChampionListAdapter(
+    private val itemAction: () -> Unit
+) : RecyclerView.Adapter<ChampionListAdapter.ViewHolder>() {
 
     var dataList = emptyList<Champion>()
 
@@ -24,10 +26,12 @@ class ChampionListAdapter:
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView
         var title: TextView
+        var cardView: CardView
 
         init {
             image = itemView.findViewById(R.id.image)
             title = itemView.findViewById(R.id.title)
+            cardView = itemView.findViewById(R.id.cardView)
         }
 
     }
@@ -35,7 +39,8 @@ class ChampionListAdapter:
     // Usually involves inflating a layout from XML and returning the holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // Inflate the custom layout
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.champion_item, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.champion_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -48,6 +53,7 @@ class ChampionListAdapter:
         // Set item views based on your views and data model
         holder.title.text = data.name
         Picasso.get().load(data.image).into(holder.image)
+        holder.cardView.setOnClickListener { itemAction() }
     }
 
     //  total count of items in the list

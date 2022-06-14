@@ -1,4 +1,4 @@
-package com.giovannydrouet.riotstats.presentation.list
+package com.giovannydrouet.riotstats.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
