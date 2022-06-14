@@ -6,14 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.giovannydrouet.riotstats.R
+import androidx.recyclerview.widget.GridLayoutManager
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
+import com.giovannydrouet.riotstats.domain.model.Champion
+import com.giovannydrouet.riotstats.presentation.recylcerview.ChampionListAdapter
 
 //Fragment that provides the list of champions to the screen
 class ChampionListFragment : Fragment() {
     private var binding: FragmentChampionListBinding? = null
-
     private val mainViewModel: MainViewModel by activityViewModels()
+
+    private val championListAdapter: ChampionListAdapter = ChampionListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,5 +30,18 @@ class ChampionListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mainViewModel.champions.observe(viewLifecycleOwner, ::renderList)
+        mainViewModel.getChampionList()
+
+        binding?.championListRecyclerView?.layoutManager = GridLayoutManager(requireContext(),2)
+        binding?.championListRecyclerView?.adapter = championListAdapter
+    }
+
+    private fun renderList(championList : List<Champion>){
+        championListAdapter.setDataList(championList)
     }
 }
