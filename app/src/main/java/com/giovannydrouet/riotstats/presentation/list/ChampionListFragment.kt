@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
 
+//Fragment that provides the list of champions to the screen
 class ChampionListFragment : Fragment() {
     private var binding: FragmentChampionListBinding? = null
 

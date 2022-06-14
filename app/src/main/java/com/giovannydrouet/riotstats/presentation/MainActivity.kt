@@ -8,6 +8,7 @@ import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.presentation.list.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+//I do not know, MainActivity is what it is, the Main activity :v
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val mainViewModel: MainViewModel by viewModels()
@@ -15,6 +16,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mainViewModel.getChampionList()
+        mainViewModel.getChampionList() //Starts ViewModel's function
     }
 }
