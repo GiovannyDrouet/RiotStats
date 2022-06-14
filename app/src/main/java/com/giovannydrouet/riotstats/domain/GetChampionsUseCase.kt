@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 //Class with the function that receives the list sent by data/hilt and stores it in domain to
 //share it with presentation
-class GetChampions @Inject constructor(private val championRepository: ChampionRepository) {
+class GetChampionsUseCase @Inject constructor(private val championRepository: ChampionRepository) {
 
     suspend fun getChampions(): List<Champion> {
         return championRepository.getChampions()
