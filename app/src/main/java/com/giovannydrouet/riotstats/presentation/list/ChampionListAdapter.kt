@@ -1,4 +1,4 @@
-package com.giovannydrouet.riotstats.presentation.recylcerview
+package com.giovannydrouet.riotstats.presentation.list
 
 import android.view.LayoutInflater
 import android.view.View

@@ -10,7 +10,6 @@ import javax.inject.Inject
 //You use an Interface instead of using directly 'ChampionRepositoryImpl' to avoid a dependency
 //of data
 class GetChampionsUseCase @Inject constructor(private val championRepository: ChampionRepository) {
-
     suspend fun getChampions(): List<Champion> {
         return championRepository.getChampions()
     }

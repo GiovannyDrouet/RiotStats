@@ -15,3 +15,4 @@ fun ChampionResponse.toDomain(): List<Champion> {
 }
 
 private const val imageBaseURL = "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/"
+

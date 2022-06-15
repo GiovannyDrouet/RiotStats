@@ -15,9 +15,3 @@ data class ChampionImageRaw(
     val full: String    //Image of the champion
 )
 
-@Serializable
-data class ChampionStats(
-    val title: String,   //Name of the champion
-    val blurb: String,
-    val tags: List<String>
-)

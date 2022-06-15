@@ -13,12 +13,12 @@ import com.giovannydrouet.riotstats.databinding.FragmentChampionDetailsBinding
 import com.giovannydrouet.riotstats.domain.model.ChampionDetails
 import com.giovannydrouet.riotstats.presentation.MainViewModel
 
-
 class ChampionDetailsFragment : Fragment() {
+
     private var binding: FragmentChampionDetailsBinding? = null
     private val mainViewModel: MainViewModel by activityViewModels()
 
-    val args: ChampionDetailsFragmentArgs by navArgs()
+    private val args: ChampionDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,20 +35,16 @@ class ChampionDetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        super.onViewCreated(view, savedInstanceState)
         mainViewModel.championDetails.observe(viewLifecycleOwner, ::renderDetails)
         mainViewModel.getChampionDetails(args.championId)
-
-
     }
 
-    private fun renderDetails(championStats: ChampionDetails){
-        val championName: TextView? = binding?.championName
-        val championTitle: TextView? = binding?.championTitle
-        val championTags: TextView? = binding?.championTags
-        championName?.text = championStats.title
-        championTitle?.text = championStats.blurb
-        championTags?.text = championStats.tags.joinToString(", ")
-        Log.d("Champion Details", championStats.toString())
+    private fun renderDetails(championStats: ChampionDetails) {
+        binding?.let {
+            it.championName.text = championStats.title
+            it.championTitle.text = championStats.blurb
+            it.championTags.text = championStats.tags.joinToString(", ")
+        }
     }
 }
