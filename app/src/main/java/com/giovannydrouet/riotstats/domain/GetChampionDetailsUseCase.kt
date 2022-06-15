@@ -5,7 +5,7 @@ import com.giovannydrouet.riotstats.domain.repository.ChampionRepository
 import javax.inject.Inject
 
 class GetChampionDetailsUseCase @Inject constructor(private val championRepository: ChampionRepository) {
-    suspend fun getChampionsDetails(name: String): ChampionDetails {
-        return championRepository.getChampionStats(name)
+    suspend fun getChampionsDetails(id: String): ChampionDetails {
+        return championRepository.getChampionStats(id)
     }
 }

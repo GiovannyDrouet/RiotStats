@@ -33,9 +33,9 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun getChampionDetails(name : String){
+    fun getChampionDetails(id : String){
         viewModelScope.launch {
-            championStatsLiveData.postValue(getChampionDetailsUseCase.getChampionsDetails(name))
+            championStatsLiveData.postValue(getChampionDetailsUseCase.getChampionsDetails(id))
         }
     }
 }

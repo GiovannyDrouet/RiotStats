@@ -16,7 +16,7 @@ class ChampionRepositoryImpl @Inject constructor(
         return service.getChampions().toDomain()
     }
 
-    override suspend fun getChampionStats(name : String): ChampionDetails {
-        return service.getChampionDetails(name).toDomain(name)
+    override suspend fun getChampionStats(id : String): ChampionDetails {
+        return service.getChampionDetails(id).toDomain(id)
     }
 }

@@ -7,10 +7,11 @@ import com.giovannydrouet.riotstats.domain.model.Champion
 fun ChampionResponse.toDomain(): List<Champion> {
     return data.map {
         Champion(
+            id = it.value.id,
             name = it.value.name,
             image = imageBaseURL + it.value.image.full
         )
     } //Maps ChampionResponse into a Champions List
 }
 
-private val imageBaseURL = "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/"
+private const val imageBaseURL = "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/"

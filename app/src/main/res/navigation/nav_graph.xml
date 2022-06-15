@@ -23,7 +23,7 @@
         android:name="com.giovannydrouet.riotstats.presentation.detail.ChampionDetailsFragment"
         tools:layout="@layout/fragment_champion_details" >
         <argument
-            android:name="championName"
+            android:name="championId"
             app:argType="string"
             android:defaultValue="None"/>
     </fragment>

@@ -51,7 +51,7 @@ class ChampionListFragment : Fragment() {
         championListAdapter.notifyDataSetChanged()
     }
 
-    private fun onItemClicked(name : String) {
-        findNavController().navigate(ChampionListFragmentDirections.listToDetails(name))
+    private fun onItemClicked(id : String) {
+        findNavController().navigate(ChampionListFragmentDirections.listToDetails(id))
     }
 }

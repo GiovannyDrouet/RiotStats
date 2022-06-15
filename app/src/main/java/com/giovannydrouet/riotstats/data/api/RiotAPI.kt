@@ -10,6 +10,6 @@ interface RiotAPI {
     @GET("data/en_US/champion.json") //Gets a JSON form this URL
     suspend fun getChampions(): ChampionResponse
 
-    @GET("data/en_US/champion/{championName}.json")
-    suspend fun getChampionDetails(@Path("championName") championName : String): ChampionDetailsResponse
+    @GET("data/en_US/champion/{championId}.json")
+    suspend fun getChampionDetails(@Path("championId") championId : String): ChampionDetailsResponse
 }

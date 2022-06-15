@@ -6,5 +6,5 @@ import com.giovannydrouet.riotstats.domain.model.ChampionDetails
 //Interface that connects domain with data without dependencies
 interface ChampionRepository {
     suspend fun getChampions() : List<Champion>
-    suspend fun getChampionStats(name: String) : ChampionDetails
+    suspend fun getChampionStats(id: String) : ChampionDetails
 }

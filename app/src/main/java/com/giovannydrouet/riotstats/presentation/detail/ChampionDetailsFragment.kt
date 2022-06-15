@@ -37,7 +37,7 @@ class ChampionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         mainViewModel.championDetails.observe(viewLifecycleOwner, ::renderDetails)
-        mainViewModel.getChampionDetails(args.championName)
+        mainViewModel.getChampionDetails(args.championId)
 
 
     }
