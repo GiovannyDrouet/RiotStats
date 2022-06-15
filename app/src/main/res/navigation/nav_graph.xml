@@ -13,13 +13,19 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+        </action>
     </fragment>
 
 
     <fragment
         android:id="@+id/championDetailsFragment"
         android:name="com.giovannydrouet.riotstats.presentation.detail.ChampionDetailsFragment"
-        tools:layout="@layout/fragment_champion_details" />
+        tools:layout="@layout/fragment_champion_details" >
+        <argument
+            android:name="championName"
+            app:argType="string"
+            android:defaultValue="None"/>
+    </fragment>
 
 </navigation>

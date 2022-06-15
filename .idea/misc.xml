@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/giova/OneDrive/Escritorio/Proyectos/Android/RiotStats/app/src/main/res/layout/champion_item.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/giova/OneDrive/Escritorio/Proyectos/Android/RiotStats/app/src/main/res/layout/fragment_champion_details.xml" value="0.18802083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/champion_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_champion_details.xml" value="0.1" />

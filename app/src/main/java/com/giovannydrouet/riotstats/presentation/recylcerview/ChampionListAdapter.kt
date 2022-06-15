@@ -12,7 +12,7 @@ import com.giovannydrouet.riotstats.domain.model.Champion
 import com.squareup.picasso.Picasso
 
 class ChampionListAdapter(
-    private val itemAction: () -> Unit
+    private val itemAction: (name : String) -> Unit
 ) : RecyclerView.Adapter<ChampionListAdapter.ViewHolder>() {
 
     var dataList = emptyList<Champion>()
@@ -53,7 +53,7 @@ class ChampionListAdapter(
         // Set item views based on your views and data model
         holder.title.text = data.name
         Picasso.get().load(data.image).into(holder.image)
-        holder.cardView.setOnClickListener { itemAction() }
+        holder.cardView.setOnClickListener { itemAction(data.name) }
     }
 
     //  total count of items in the list

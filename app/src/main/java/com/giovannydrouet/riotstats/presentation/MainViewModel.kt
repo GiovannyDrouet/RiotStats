@@ -1,6 +1,5 @@
 package com.giovannydrouet.riotstats.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,7 +16,7 @@ class MainViewModel @Inject constructor(
     private val getChampionsUseCase: GetChampionsUseCase
 ) : ViewModel() {
     private val championLiveData = MutableLiveData<List<Champion>>()
-    val champions : LiveData<List<Champion>> = championLiveData
+    val champions: LiveData<List<Champion>> = championLiveData
     fun getChampionList() {
         viewModelScope.launch {     //EVERY FUNCTION EXECUTED IN LAUNCH MUST BE 'SUSPEND FUN'
             championLiveData.postValue(getChampionsUseCase.getChampions())

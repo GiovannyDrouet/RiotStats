@@ -1,6 +1,7 @@
 package com.giovannydrouet.riotstats.presentation.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.giovannydrouet.riotstats.R
 import com.giovannydrouet.riotstats.databinding.FragmentChampionListBinding
 import com.giovannydrouet.riotstats.domain.model.Champion
 import com.giovannydrouet.riotstats.presentation.MainViewModel
+import com.giovannydrouet.riotstats.presentation.detail.ChampionDetailsFragmentArgs
 import com.giovannydrouet.riotstats.presentation.recylcerview.ChampionListAdapter
 
 //Fragment that provides the list of champions to the screen
@@ -49,7 +51,8 @@ class ChampionListFragment : Fragment() {
         championListAdapter.notifyDataSetChanged()
     }
 
-    private fun onItemClicked(){
-        findNavController().navigate(R.id.listToDetails)
+    private fun onItemClicked(name : String) {
+        findNavController().navigate(ChampionListFragmentDirections.listToDetails(name))
+
     }
 }
