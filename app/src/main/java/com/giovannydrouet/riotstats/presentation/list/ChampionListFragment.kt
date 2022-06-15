@@ -53,6 +53,5 @@ class ChampionListFragment : Fragment() {
 
     private fun onItemClicked(name : String) {
         findNavController().navigate(ChampionListFragmentDirections.listToDetails(name))
-
     }
 }

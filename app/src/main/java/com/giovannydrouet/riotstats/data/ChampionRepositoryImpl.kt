@@ -3,6 +3,7 @@ package com.giovannydrouet.riotstats.data
 import com.giovannydrouet.riotstats.data.api.RiotAPI
 import com.giovannydrouet.riotstats.data.mapper.toDomain
 import com.giovannydrouet.riotstats.domain.model.Champion
+import com.giovannydrouet.riotstats.domain.model.ChampionDetails
 import com.giovannydrouet.riotstats.domain.repository.ChampionRepository
 import javax.inject.Inject
 
@@ -13,5 +14,9 @@ class ChampionRepositoryImpl @Inject constructor(
 
     override suspend fun getChampions(): List<Champion> {
         return service.getChampions().toDomain()
+    }
+
+    override suspend fun getChampionStats(name : String): ChampionDetails {
+        return service.getChampionDetails(name).toDomain(name)
     }
 }
